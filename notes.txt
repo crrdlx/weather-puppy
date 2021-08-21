@@ -1,2 +1,13 @@
+My API key for http://api.openweathermap.org is:
+dd3241b9b8258b8d05724d8d59e3d656
+user: crrdlx@gmail.com
+pw: pw_alg_4 using "openweathermap" as the spawn word, so: Go4#pqbq1
+
+First attempt:
+https://www.youtube.com/watch?v=KqZGuzrY9D4
+
+Another tutorial:
 https://webdesign.tutsplus.com/tutorials/build-a-simple-weather-app-with-vanilla-javascript--cms-33893
 
+A third:
+https://www.freecodecamp.org/news/building-a-weather-app-a3cec42b11fa/

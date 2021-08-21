@@ -12,7 +12,7 @@ const notificationElement = document.querySelector(".notification");
 const weather = {};
 
 weather.temperature = {
-    unit : "celsius"
+    unit : "fahrenheit"
 }
 
 // APP CONSTS AND VARS
@@ -87,7 +87,7 @@ tempElement.addEventListener("click", function(){
         tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
         weather.temperature.unit = "fahrenheit";
     }else{
-        tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+        tempElement.innerHTML = `${weather.temperature.value}°<span>F</span>`;
         weather.temperature.unit = "celsius"
     }
 });
