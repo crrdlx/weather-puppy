@@ -12,6 +12,11 @@ CodePen original:
 https://codepen.io/tutsplus/pen/gObLaEP
 My CodePen fork:
 https://codepen.io/crrdlx/pen/PojYzLG
+Check the comments at https://codepen.io/tutsplus/details/gObLaEP
 
 A third:
 https://www.freecodecamp.org/news/building-a-weather-app-a3cec42b11fa/
+
+
+https://weatherpuppy.netlify.app
+
