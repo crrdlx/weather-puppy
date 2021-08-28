@@ -262,9 +262,9 @@ body {
 }
 
 
-/* API Key banner
+/* Alert Key banner
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.api {
+.alert {
   background: #fffbbc;
   position: fixed;
   top: 0;
@@ -273,10 +273,10 @@ body {
   padding: 10px;
 }
 
-.api a {
+.alert a {
   text-decoration: underline;
 }
 
-.api a:hover {
+.alert a:hover {
   text-decoration: none;
 }
