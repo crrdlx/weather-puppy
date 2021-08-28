@@ -3,7 +3,7 @@ const form = document.querySelector(".top-banner form");
 const input = document.querySelector(".top-banner input");
 const msg = document.querySelector(".top-banner .msg");
 const list = document.querySelector(".ajax-section .cities");
-/*SUBSCRIBE HERE FOR API KEY: https://home.openweathermap.org/users/sign_up*/
+/*SUBSCRIBE HERE FOR API KEY: https://home.openweathermap.org/users/sign_up My key (crrdlx) is below starting with dd32...*/
 const apiKey = "dd3241b9b8258b8d05724d8d59e3d656";
 
 form.addEventListener("submit", e => {
@@ -46,7 +46,7 @@ form.addEventListener("submit", e => {
   }
 
   //ajax here
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=fahrenheit`;
 
   fetch(url)
     .then(response => response.json())
