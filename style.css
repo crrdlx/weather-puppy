@@ -89,14 +89,6 @@ body {
   border-bottom: 1px solid;
 }
 
-.top-banner form input::-moz-placeholder {
-  color: currentColor; 
-}
-
-.top-banner form input:-ms-input-placeholder {
-  color: currentColor; 
-}
-
 .top-banner form input::placeholder {
   color: currentColor; 
 }
@@ -264,7 +256,7 @@ body {
 
 /* Alert Key banner
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.alert {
+.api {
   background: #fffbbc;
   position: fixed;
   top: 0;
@@ -273,10 +265,10 @@ body {
   padding: 10px;
 }
 
-.alert a {
+.a {
   text-decoration: underline;
 }
 
-.alert a:hover {
+.api a:hover {
   text-decoration: none;
 }
