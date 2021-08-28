@@ -46,7 +46,7 @@ form.addEventListener("submit", e => {
   }
 
   //ajax here
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=fahrenheit`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=standard`;
 
   fetch(url)
     .then(response => response.json())
