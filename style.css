@@ -89,6 +89,14 @@ body {
   border-bottom: 1px solid;
 }
 
+.top-banner form input::-moz-placeholder {
+  color: currentColor; 
+}
+
+.top-banner form input:-ms-input-placeholder {
+  color: currentColor; 
+}
+
 .top-banner form input::placeholder {
   color: currentColor; 
 }
