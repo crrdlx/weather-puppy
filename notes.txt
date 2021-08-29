@@ -20,3 +20,5 @@ https://www.freecodecamp.org/news/building-a-weather-app-a3cec42b11fa/
 
 https://weatherpuppy.netlify.app
 
+next steps...
+. get the icons live on netlify. they're live on codepen, but not showing up on netlify. cache issue?
