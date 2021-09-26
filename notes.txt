@@ -17,7 +17,13 @@ Check the comments at https://codepen.io/tutsplus/details/gObLaEP
 attempt-three:
 https://www.freecodecamp.org/news/building-a-weather-app-a3cec42b11fa/
 CodePen: https://codepen.io/ayoisaiah/pen/LNLzgx
-My CodePen clone: https://codepen.io/crrdlx/pen/xxrQGqj
+My CodePen fork: https://codepen.io/crrdlx/pen/xxrQGqj
+
+Could get this one to show weather.
+
+attempt-four:
+https://codepen.io/freeCodeCamp/pen/bELRjV
+My CodePen fork: https://codepen.io/crrdlx/pen/jOwQPGV
 
 
 https://weatherpuppy.netlify.app

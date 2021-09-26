@@ -1,132 +1,75 @@
-//Skycons
+var api = "https://fcc-weather-api.glitch.me/api/current?";
+var lat, lon;
+var tempUnit = 'C';
+var currentTempInCelsius;
 
-var skycons = new Skycons({"color": "#FFFAFF"});
+$( document ).ready(function(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var lat = "lat=" + position.coords.latitude;
+      var lon = "lon=" + position.coords.longitude;
+      getWeather(lat, lon);
+    });
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
 
-skycons.add("animated-icon", Skycons.CLEAR_DAY);
+  $("#tempunit").click(function () {
+    var currentTempUnit = $("#tempunit").text();
+    var newTempUnit = currentTempUnit == "C" ? "F" : "C";
+    $("#tempunit").text(newTempUnit);
+    if (newTempUnit == "F") {
+      var fahTemp = Math.round(parseInt($("#temp").text()) * 9 / 5 + 32);
+      $("#temp").text(fahTemp + " " + String.fromCharCode(176));
+    } else {
+      $("#temp").text(currentTempInCelsius + " " + String.fromCharCode(176));
+    }
+  });
+  
+})
 
-skycons.play();
-
-//Some Global variables
-
-var longitude, latitude, timeHour, timeFull;
-
-//Function to update weather information
-
-function updateWeather (json) {
-
-	longitude = json.coord.lon;
-	latitude = json.coord.lat;
-
-	//AJAX request
-
-	$.getJSON('http://api.geonames.org/timezoneJSON?lat=' + latitude + '&lng=' + longitude + '&username=ayoisaiah', function(timezone) {
-			var rawTimeZone = JSON.stringify(timezone);
-			var parsedTimeZone = JSON.parse(rawTimeZone);
-			var dateTime = parsedTimeZone.time;
-			timeFull = dateTime.substr(11);
-			$(".local-time").html(timeFull); //Update local time
-			timeHour = dateTime.substr(-5, 2);
-	});
-
-	//Update Weather parameters and location
-
-	$(".weather-condition").html(json.weather[0].description);
-var temp = [(json.main.temp - 273.15).toFixed(0) + "°C", (1.8 * (json.main.temp - 273.15) + 32).toFixed(0) + "F"];
-	$(".temp-celsius").html(temp[0]);
-	$(".temp-fahrenheit").html(temp[1]);
-	$(".temperature").click(function () {
-		$(".temp-celsius").toggle();
-		$(".temp-fahrenheit").toggle();
-	});
-	$(".location").html("for " + json.name);
-
-	//Update Weather animation based on the returned weather description
-
-	var weather = json.weather[0].description;
-	
-	if(weather.indexOf("rain") >= 0) {
-		skycons.set("animated-icon", Skycons.RAIN);
-	}
-
-	else if (weather.indexOf("sunny") >= 0) {
-		skycons.set("animated-icon", Skycons.CLEAR_DAY);
-	}
-
-	else if (weather.indexOf("clear") >= 0) {
-		if (timeHour >= 7 && timeHour < 20) {
-			skycons.set("animated-icon", Skycons.CLEAR_DAY);
-		}
-
-		else {
-			skycons.set("animated-icon", Skycons.CLEAR_NIGHT);
-		}		
-	}
-
-	else if (weather.indexOf("cloud") >= 0) {
-		if (timeHour >= 7 && timeHour < 20) {
-			skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_DAY);
-		}
-
-		else {
-			skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_NIGHT);
-		}	
-	}
-
-	else if (weather.indexOf("thunderstorm") >= 0) {
-		skycons.set("animated-icon", Skycons.SLEET);
-	}
-
-	else if (weather.indexOf("snow") >= 0) {
-		skycons.set("animated-icon", Skycons.SNOW);
-	}
+function getWeather(lat, lon) {
+  var urlString = api + lat + "&" + lon;
+  $.ajax({
+    url: urlString, success: function (result) {
+      $("#city").text(result.name + ", ");
+      $("#country").text(result.sys.country);
+      currentTempInCelsius = Math.round(result.main.temp * 10) / 10;
+      $("#temp").text(currentTempInCelsius + " " + String.fromCharCode(176));
+      $("#tempunit").text(tempUnit);
+      $("#desc").text(result.weather[0].main);
+      IconGen(result.weather[0].main);
+    }
+  });
 }
 
-//Check for Geoloaction support 
-
-if (navigator.geolocation) {
-
-	//Return the user's longitude and latitude on page load using HTML5 geolocation API
-
-	window.onload = function () {
-	var currentPosition;
-	function getCurrentLocation (position) {
-		currentPosition = position;
-		latitude = currentPosition.coords.latitude;
-		longitude = currentPosition.coords.longitude;
-
-		//AJAX request
-
-		$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=188b68e6b443a5380ce7ee0f0bb49cfc", function (data) {
-			var rawJson = JSON.stringify(data);
-			var json = JSON.parse(rawJson);
-			updateWeather(json); //Update Weather parameters
-		});
-	}
-
-	navigator.geolocation.getCurrentPosition(getCurrentLocation);
-	
-	};
-
-	//Find a Forcast
-	
-	$("form").on("submit", function(event) {
-		event.preventDefault();
-		var city = $(".find-forcast").val(); //Get value from form input
-		document.getElementById("my-form").reset();
-		
-		//AJAX Request
-
-		$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=188b68e6b443a5380ce7ee0f0bb49cfc", function (data) {
-			var rawJson = JSON.stringify(data);
-			var json = JSON.parse(rawJson);
-			updateWeather(json); //Update Weather parameters
-		});
-	});
+function IconGen(desc) {
+  var desc = desc.toLowerCase()
+  switch (desc) {
+    case 'drizzle':
+      addIcon(desc)
+      break;
+    case 'clouds':
+      addIcon(desc)
+      break;
+    case 'rain':
+      addIcon(desc)
+      break;
+    case 'snow':
+      addIcon(desc)
+      break;
+    case 'clear':
+      addIcon(desc)
+      break;
+    case 'thunderstom':
+      addIcon(desc)
+      break;
+    default:
+      $('div.clouds').removeClass('hide');
+  }
 }
 
-//If Geolocation is not supported by the browser, alert the user
-
-else { 
-	alert("Geolocation is not supported by your browser, download the latest Chrome or Firefox to use this app");
+function addIcon(desc) {
+  $('div.' + desc).removeClass('hide');
 }
 
