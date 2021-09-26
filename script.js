@@ -36,9 +36,9 @@ form.addEventListener("submit", e => {
     });
 
     if (filteredArray.length > 0) {
-      msg.textContent = `You already know the weather for ${
+      msg.textContent = `The weather is already shown for ${
         filteredArray[0].querySelector(".city-name span").textContent
-      } ...otherwise be more specific by providing the country code as well 😉`;
+      } ...otherwise, you might include the two-letter country code as well 😉`;
       form.reset();
       input.focus();
       return;
@@ -75,7 +75,7 @@ form.addEventListener("submit", e => {
       list.appendChild(li);
     })
     .catch(() => {
-      msg.textContent = "Please search for a valid city 😩";
+      msg.textContent = "Please search for a city name or zip code. 😩";
     });
 
   msg.textContent = "";
