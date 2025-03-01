@@ -61,9 +61,19 @@
             color: red;
             margin-top: 10px;
         }
+        
+        /* Added styles for the image */
+        .header-image {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 300px; /* Keeps image from getting too large */
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <img src="images/tinymarf.jpg" alt="Tiny Marf" class="header-image">
+    
     <div class="input-container">
         <input type="text" id="locationInput" placeholder="Enter US zip code or City, ST (e.g., Chicago, IL)">
         <button onclick="getWeather()">Get Weather</button>
