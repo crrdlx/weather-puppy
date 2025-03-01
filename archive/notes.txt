@@ -1,0 +1,34 @@
+My API key for http://api.openweathermap.org is:
+dd3241b9b8258b8d05724d8d59e3d656
+user: crrdlx@gmail.com
+pw: pw_alg_4 using "openweathermap" as the spawn word, so: Go4#pqbq1
+
+attempt-one:
+https://www.youtube.com/watch?v=KqZGuzrY9D4
+
+attempt-two:
+https://webdesign.tutsplus.com/tutorials/build-a-simple-weather-app-with-vanilla-javascript--cms-33893
+CodePen original:
+https://codepen.io/tutsplus/pen/gObLaEP
+My CodePen fork:
+https://codepen.io/crrdlx/pen/PojYzLG
+Check the comments at https://codepen.io/tutsplus/details/gObLaEP
+
+attempt-three:
+https://www.freecodecamp.org/news/building-a-weather-app-a3cec42b11fa/
+CodePen: https://codepen.io/ayoisaiah/pen/LNLzgx
+My CodePen fork: https://codepen.io/crrdlx/pen/xxrQGqj
+
+Could get this one to show weather.
+
+attempt-four:
+https://codepen.io/freeCodeCamp/pen/bELRjV
+My CodePen fork: https://codepen.io/crrdlx/pen/jOwQPGV
+
+
+https://weatherpuppy.netlify.app
+
+next steps...
+. figure a way to bookmark a link to a city (so you don't have to search every time)
+. redraw the images with bolder lines. maybe, make gifs (test that gifs work first)
+. if it's worth it, figure a way to code a randomization effect. for instance, for a sunny day, I would have like 3 sunny-day images or gifs and one would be randomly chosen.
